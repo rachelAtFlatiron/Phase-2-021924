@@ -17,12 +17,6 @@ title: '03_information_flow'
 
 ---
 
-## Before we get started
-## Deliverable #1: Fetch 
-
-
----
-
 ##  🌈 Friendly Reminders ✨
 
 #### 🚦 DO NOT PASS DOWN SETSTATE DIRECTLY 🛑
