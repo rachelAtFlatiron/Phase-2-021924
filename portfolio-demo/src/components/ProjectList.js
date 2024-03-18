@@ -1,20 +1,27 @@
-import { useState } from 'react'
+import { useState, useEffect } from "react";
 import ProjectListItem from "./ProjectListItem";
 
 function ProjectList({ projects }) {
-
-	const [ searchQuery, setSearchQuery ] =  useState('')
-	const [phaseState, setPhase] = useState(0)
+	const [searchQuery, setSearchQuery] = useState("");
+	const [phaseState, setPhase] = useState(0);
+	const [filteredProjects, setFilteredProjects] = useState(projects);
 	// ✅ 4a. Create a state for filteredProjects in ProjectList.js
 	// ✅ 4b. Create a useEffect with phaseState, searchQuery and projects in the dependency array
-	const filteredProjects = projects.filter(
-		(project) => {
+
+	useEffect(() => {
+		console.log('hi')
+		//filtering projects
+		const newFilteredProjects = projects.filter((project) => {
 			return (
-				(phaseState === 0 || project.phase === phaseState) &&  
-				(searchQuery === '' || project.name.toLowerCase().includes(searchQuery.toLowerCase())) 
-			)
-		}
-	)
+				(phaseState === 0 || project.phase === phaseState) &&
+				(searchQuery === "" ||
+					project.name.toLowerCase().includes(searchQuery.toLowerCase()))
+			);
+		}); 
+		//updating filteredProjects state
+		setFilteredProjects(newFilteredProjects);
+	}, [projects, searchQuery, phaseState]); //useEffect runs when ANY of these change
+
 	return (
 		<section>
 			<h2>Project List</h2>

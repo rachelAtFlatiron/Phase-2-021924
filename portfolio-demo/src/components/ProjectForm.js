@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function ProjectForm({ addProject }) {
+function ProjectForm({ addProject, url }) {
 	const formOutline = {
 		name: "",
 		about: "",
@@ -23,11 +23,32 @@ function ProjectForm({ addProject }) {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		//✅ 2a. Send the new project data to the server using a POST fetch request
-		addProject({...form, phase: parseInt(form.phase)}); 
-		setForm(formOutline)
-	};
 
-	
+		//keep in mind optimistic vs pessimistic rendering
+		//separation of concerns - leave POST request in project form
+
+		fetch(`${url}/projects`, {
+			method: "POST",
+			headers: {
+				"content-type": "application/json",
+			},
+			body: JSON.stringify({
+				...form,
+				phase: parseInt(form.phase)
+			}),
+		})
+			.then((res) => {
+				if (res.ok) {
+					return res.json();
+				} else {
+					console.error("something went wrong");
+				}
+			})
+			.then(() => {
+				addProject({ ...form, phase: parseInt(form.phase) });
+				setForm(formOutline);
+			});
+	};
 
 	return (
 		<section>
