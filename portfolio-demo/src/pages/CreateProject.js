@@ -15,11 +15,11 @@ function CreateProject() {
 	};
 
 	const [form, setForm] = useState(formOutline);
-
+	const navigate = useNavigate()
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
-		fetch("http://localhost:4000/projects", {
+		fetch("/projects", {
 			method: "POST",
 			body: JSON.stringify({
 				...form,
@@ -31,7 +31,7 @@ function CreateProject() {
 		})
 		.then((res) => res.json())
 		.then((data) => {
-
+			navigate('/projects')
 		})
 		.catch(err => console.log(err))
 	};

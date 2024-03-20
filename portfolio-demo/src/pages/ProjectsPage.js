@@ -9,9 +9,13 @@ function ProjectsPage() {
   }, []) 
 
   const loadProjects = () => {
-    fetch('http://localhost:4000/projects')
+    fetch('/projects')
     .then(res => res.json())
     .then(data => setProjects(data))
+  }
+
+  const deleteProject = () => {
+    setProjects()
   }
 
   return (

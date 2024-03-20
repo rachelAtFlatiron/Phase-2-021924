@@ -10,13 +10,33 @@ function EditProject() {
 	const [formData, setFormData] = useState({});
 
 	useEffect(() => {
-		fetch(`http://localhost:4000/projects/${id}`)
+		fetch(`/projects/${id}`)
 			.then((res) => res.json())
 			.then((data) => setFormData(data));
 	}, []);
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		//PATCH
+		fetch(`/projects/${id}`, {
+			method: 'PATCH',
+			headers: {'content-type': 'application/json'},
+			body: JSON.stringify({
+				...formData,
+				phase: parseInt(formData.phase)
+			})
+		})
+		.then(res => {
+			if (res.ok){
+				return res.json()
+			} else {
+				console.error('patch failed')
+			}
+		})
+		.then(data => {
+			//navigate back to /projects/:id
+			navigate(`/projects/${id}`)
+		})
 	};
 
 	const handleOnChange = (e) => {
@@ -78,7 +98,6 @@ function EditProject() {
 				value={formData.image}
 				onChange={handleOnChange}
 			/>
-
 			<button type="submit">Update Project</button>
 		</form>
 	);
