@@ -23,7 +23,7 @@
                     <mxGeometry x="350" y="30" width="160" height="70" as="geometry"/>
                 </mxCell>
                 <mxCell id="3" value="About&lt;br&gt;/about" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="90" y="190" width="120" height="60" as="geometry"/>
+                    <mxGeometry x="80" y="190" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="CreateProject&lt;br&gt;/new" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="220" y="190" width="120" height="60" as="geometry"/>
@@ -31,11 +31,26 @@
                 <mxCell id="7" value="EditProject&lt;br&gt;/projects/:id/edit" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="370" y="190" width="120" height="60" as="geometry"/>
                 </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="9" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="9" value="ProjectDetail&lt;br&gt;/projects/:id" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="520" y="190" width="120" height="60" as="geometry"/>
                 </mxCell>
+                <mxCell id="14" style="edgeStyle=none;html=1;" edge="1" parent="1" source="11" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="11" value="ProjectPage&lt;br&gt;/projects" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
                     <mxGeometry x="670" y="190" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="13" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="ProjectList" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="310" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="ProjectListItem" style="whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="670" y="420" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
